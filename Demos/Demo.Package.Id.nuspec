@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+
+    <id>Demo.Package.Id</id>
+    <version>1.1.0-preview1</version>
+    <title>Demo Package</title>
+    <authors>Demo Org</authors>
+    <owners>Demo Org</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://demo.org/demo/resources/licenses/license.txt</licenseUrl>
+    <projectUrl>https://demo.org/demo</projectUrl>
+    <iconUrl>https://demo.org/demo/resources/icons/nuget.png</iconUrl>
+    <description>This is a demo library and package.</description>
+    <releaseNotes>We have added lots of new features in this release!</releaseNotes>
+    <copyright>© Demo Org. All rights reserved.</copyright>
+    <tags>meetup,demo,package,example</tags>
+    <repository url="https://github.com/demo/demo" />
+
+    <dependencies>
+      <group targetFramework=".NETStandard1.0">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="Tizen4.0">
+        <dependency id="Tizen.NET" version="4.0.0" exclude="Runtime,Build,Analyzers" />
+        <dependency id="Tizen.NET.Sdk" version="1.0.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="UAP10.0">
+        <dependency id="Microsoft.NETCore.UniversalWindowsPlatform" version="6.1.5" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Windows.Forms" targetFramework=".NETFramework2.0, .NETFramework4.6.2" />
+    </frameworkAssemblies>
+
+  </metadata>
+  <files>
+
+    <file src="nuget\Demo\bin\Debug\monoandroid8.1\Demo.dll" target="lib\monoandroid81\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\net20\Demo.dll" target="lib\net20\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\net462\Demo.dll" target="lib\net462\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\netcoreapp2.1\Demo.dll" target="lib\netcoreapp2.1\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\netstandard1.0\Demo.dll" target="lib\netstandard1.0\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\netstandard2.0\Demo.dll" target="lib\netstandard2.0\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\portable-net45+win8+wpa81+wp8\Demo.dll" target="lib\portable-net45+win8+wp8+wpa81\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\portable-win81+wpa81\Demo.dll" target="lib\portable-win81+wpa81\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\portable-win81+wpa81\Demo.pri" target="lib\portable-win81+wpa81\Demo.pri" />
+    <file src="nuget\Demo\bin\Debug\sl5\Demo.dll" target="lib\sl5\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\tizen4.0\Demo.dll" target="lib\tizen40\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\uap10.0.10240\Demo.dll" target="lib\uap10.0.10240\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\uap10.0.10240\Demo.pri" target="lib\uap10.0.10240\Demo.pri" />
+    <file src="nuget\Demo\bin\Debug\uap10.0.16299\Demo.dll" target="lib\uap10.0.16299\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\uap10.0.16299\Demo.pri" target="lib\uap10.0.16299\Demo.pri" />
+    <file src="nuget\Demo\bin\Debug\win8\Demo.dll" target="lib\win8\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\win8\Demo.pri" target="lib\win8\Demo.pri" />
+    <file src="nuget\Demo\bin\Debug\wp8\Demo.dll" target="lib\wp8\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\wpa81\Demo.dll" target="lib\wpa81\Demo.dll" />
+    <file src="nuget\Demo\bin\Debug\wpa81\Demo.pri" target="lib\wpa81\Demo.pri" />
+    <file src="nuget\Demo\bin\Debug\xamarinios1.0\Demo.dll" target="lib\xamarinios10\Demo.dll" />
+
+    <file src="nuget\SomeFile.txt" target="SomeFile.txt" />
+
+  </files>
+</package>
