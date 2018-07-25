@@ -80,7 +80,7 @@
 
 
   <!-- PCL -->
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('portable-net45+win8+wpa81+wp8'))">
+  <PropertyGroup Condition="$(TargetFramework) == 'portable-net45+win8+wpa81+wp8'">
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('portable-net45+win8+wpa81+wp8'))">
@@ -131,7 +131,7 @@
 
 
   <!-- Windows Phone 8.1 and Store 8.1 -->
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('portable-win81+wpa81'))">
+  <PropertyGroup Condition="$(TargetFramework) == 'portable-win81+wpa81'">
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('portable-win81+wpa81'))">

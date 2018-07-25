@@ -101,7 +101,7 @@
 
 
   <!-- PCL -->
-  <ItemGroup Condition="$(TargetFramework.StartsWith('portable-net45+win8+wpa81+wp8'))">
+  <ItemGroup Condition="$(TargetFramework) == 'portable-net45+win8+wpa81+wp8'">
     <Compile Include="..\Demo.Portable\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
@@ -142,7 +142,7 @@
 
 
   <!-- Windows Phone 8.1 and Store 8.1 -->
-  <ItemGroup Condition="$(TargetFramework.StartsWith('portable-win81+wpa81'))">
+  <ItemGroup Condition="$(TargetFramework) == 'portable-win81+wpa81'">
     <Compile Include="..\Demo.WinRT\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
