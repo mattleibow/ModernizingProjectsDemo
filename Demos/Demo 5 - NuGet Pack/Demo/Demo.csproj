@@ -48,6 +48,7 @@
     <None Include="..\SomeFile.txt" PackagePath="SomeFile.txt" Pack="True" />
   </ItemGroup>
 
+
   <!-- Shared -->
   <ItemGroup>
     <PackageReference Include="MSBuild.Sdk.Extras" Version="1.5.4" PrivateAssets="All" />
@@ -59,7 +60,6 @@
   <PropertyGroup Condition="$(TargetFramework.StartsWith('monoandroid'))">
     <AppDesignerFolder>..\Demo.Android\Properties</AppDesignerFolder>
     <AndroidResgenFile>..\Demo.Android\Resources\Resource.Designer.cs</AndroidResgenFile>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('monoandroid'))">
     <None Include="..\Demo.Android\Resources\AboutResources.txt" />
@@ -70,9 +70,6 @@
 
 
   <!-- Desktop (2.0 and 4.5.2) -->
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('net2')) or $(TargetFramework.StartsWith('net4'))">
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('net2')) or $(TargetFramework.StartsWith('net4'))">
     <Reference Include="System.Windows.Forms" />
     <Compile Include="..\Demo.Desktop\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
@@ -82,7 +79,6 @@
   <!-- Xamarin.iOS -->
   <PropertyGroup Condition="$(TargetFramework.StartsWith('xamarinios'))">
     <IPhoneResourcePrefix>..\Demo.iOS\Resources</IPhoneResourcePrefix>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('xamarinios'))">
     <Folder Include="..\Demo.iOS\Resources\" />
@@ -91,8 +87,6 @@
 
 
   <!-- .NET Core -->
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('netcore'))">
-  </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('netcore'))">
     <Compile Include="..\Demo.NetCore\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
@@ -107,9 +101,6 @@
 
 
   <!-- PCL -->
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('portable-net45+win8+wpa81+wp8'))">
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('portable-net45+win8+wpa81+wp8'))">
     <Compile Include="..\Demo.Portable\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
@@ -117,10 +108,9 @@
 
   <!-- Silverlight -->
   <PropertyGroup Condition="$(TargetFramework.StartsWith('sl5'))">
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AppDesignerFolder>..\Demo.SL\Properties</AppDesignerFolder>
     <SilverlightApplication>false</SilverlightApplication>
     <GenerateExtensionManifest>true</GenerateExtensionManifest>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('sl5'))">
     <Compile Include="..\Demo.SL\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
@@ -139,9 +129,6 @@
 
 
   <!-- UWP (10240 and 16299) -->
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('uap'))">
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('uap'))">
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5" />
     <Compile Include="..\Demo.UWP\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
@@ -149,18 +136,12 @@
 
 
   <!-- Windows 8 -->
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('win'))">
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('win'))">
     <Compile Include="..\Demo.Win8\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
 
   <!-- Windows Phone 8.1 and Store 8.1 -->
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('portable-win81+wpa81'))">
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('portable-win81+wpa81'))">
     <Compile Include="..\Demo.WinRT\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
@@ -168,11 +149,10 @@
 
   <!-- Windows Phone 8.0 Silverlight -->
   <PropertyGroup Condition="$(TargetFramework.StartsWith('wp8'))">
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AppDesignerFolder>..\Demo.WP\Properties</AppDesignerFolder>
     <SilverlightApplication>false</SilverlightApplication>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('wp8'))">
     <Compile Include="..\Demo.WP\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
@@ -181,8 +161,7 @@
 
   <!-- Windows Phone 8.1 -->
   <PropertyGroup Condition="$(TargetFramework.StartsWith('wpa8'))">
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppDesignerFolder>..\Demo.WPA\Properties</AppDesignerFolder>
   </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('wpa8'))">
     <Compile Include="..\Demo.WPA\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
