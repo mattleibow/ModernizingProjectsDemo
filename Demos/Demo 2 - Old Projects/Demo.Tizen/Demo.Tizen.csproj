@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>tizen4.0</TargetFramework>
+    <RootNamespace>Demo</RootNamespace>
+    <AssemblyName>Demo</AssemblyName>
+    <TizenCreateTpkOnBuild>false</TizenCreateTpkOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Tizen.NET" Version="4.0.0" ExcludeAssets="Runtime" />
+    <PackageReference Include="Tizen.NET.Sdk" Version="1.0.1"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Demo.Shared\**\*.cs" />
+  </ItemGroup>
+
+</Project>

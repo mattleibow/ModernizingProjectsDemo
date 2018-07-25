@@ -1,0 +1,194 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>
+      monoandroid8.1;
+      net20; net462;
+      xamarinios1.0;
+      netcoreapp2.1;
+      netstandard1.0; netstandard2.0;
+      portable-net45+win8+wpa81+wp8;
+      sl5;
+      tizen4.0;
+      uap10.0.10240; uap10.0.16299;
+      win8;
+      wp8;
+      wpa81;
+      portable-win81+wpa81
+    </TargetFrameworks>
+    <RootNamespace>Demo</RootNamespace>
+    <AssemblyName>Demo</AssemblyName>
+  </PropertyGroup>
+
+
+  <!-- NuGet properties -->
+  <PropertyGroup>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <InformationalVersion>1.1.0-preview1</InformationalVersion>
+    <Product>Demo</Product>
+    <PackageId>Demo.Package.Id</PackageId>
+    <Title>Demo Package</Title>
+    <Summary>This is a demo library and package.</Summary>
+    <Description>This is a demo library and package.</Description>
+    <PackageTags>meetup,demo,package,example</PackageTags>
+    <PackageVersion>1.1.0-preview1</PackageVersion>
+    <Authors>Demo Org</Authors>
+    <Owners>Demo Org</Owners>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Copyright>© Demo Org. All rights reserved.</Copyright>
+    <PackageReleaseNotes>We have added lots of new features in this release!</PackageReleaseNotes>
+    <PackageIconUrl>https://demo.org/demo/resources/icons/nuget.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/demo/demo</RepositoryUrl>
+    <PackageLicenseUrl>https://demo.org/demo/resources/licenses/license.txt</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://demo.org/demo</PackageProjectUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\SomeFile.txt" PackagePath="SomeFile.txt" Pack="True" />
+  </ItemGroup>
+
+  <!-- Shared -->
+  <ItemGroup>
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.5.4" PrivateAssets="All" />
+    <Compile Include="..\Demo.Shared\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- Xamarin.Android -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('monoandroid'))">
+    <AppDesignerFolder>..\Demo.Android\Properties</AppDesignerFolder>
+    <AndroidResgenFile>..\Demo.Android\Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('monoandroid'))">
+    <None Include="..\Demo.Android\Resources\AboutResources.txt" />
+    <AndroidResource Include="..\Demo.Android\Resources\values\strings.xml" />
+    <Folder Include="..\Demo.Android\Resources\drawable\" />
+    <Compile Include="..\Demo.Android\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- Desktop (2.0 and 4.5.2) -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('net2')) or $(TargetFramework.StartsWith('net4'))">
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net2')) or $(TargetFramework.StartsWith('net4'))">
+    <Reference Include="System.Windows.Forms" />
+    <Compile Include="..\Demo.Desktop\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- Xamarin.iOS -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('xamarinios'))">
+    <IPhoneResourcePrefix>..\Demo.iOS\Resources</IPhoneResourcePrefix>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('xamarinios'))">
+    <Folder Include="..\Demo.iOS\Resources\" />
+    <Compile Include="..\Demo.iOS\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- .NET Core -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('netcore'))">
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('netcore'))">
+    <Compile Include="..\Demo.NetCore\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- .NET Standard (1.0 and 2.0) -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('netstandard'))">
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('netstandard'))">
+    <Compile Include="..\Demo.NetStandard\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- PCL -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('portable-net45+win8+wpa81+wp8'))">
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('portable-net45+win8+wpa81+wp8'))">
+    <Compile Include="..\Demo.Portable\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- Silverlight -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('sl5'))">
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SilverlightApplication>false</SilverlightApplication>
+    <GenerateExtensionManifest>true</GenerateExtensionManifest>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('sl5'))">
+    <Compile Include="..\Demo.SL\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- Tizen -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('tizen'))">
+    <TizenCreateTpkOnBuild>false</TizenCreateTpkOnBuild>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('tizen'))">
+    <PackageReference Include="Tizen.NET" Version="4.0.0" ExcludeAssets="Runtime" />
+    <PackageReference Include="Tizen.NET.Sdk" Version="1.0.1"/>
+    <Compile Include="..\Demo.Tizen\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- UWP (10240 and 16299) -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('uap'))">
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('uap'))">
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5" />
+    <Compile Include="..\Demo.UWP\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- Windows 8 -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('win'))">
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('win'))">
+    <Compile Include="..\Demo.Win8\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- Windows Phone 8.1 and Store 8.1 -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('portable-win81+wpa81'))">
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('portable-win81+wpa81'))">
+    <Compile Include="..\Demo.WinRT\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- Windows Phone 8.0 Silverlight -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('wp8'))">
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('wp8'))">
+    <Compile Include="..\Demo.WP\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <!-- Windows Phone 8.1 -->
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('wpa8'))">
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('wpa8'))">
+    <Compile Include="..\Demo.WPA\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+
+  <Import Project="$(MSBuildSdkExtrasTargets)" Condition="Exists('$(MSBuildSdkExtrasTargets)')"/>
+
+</Project>
