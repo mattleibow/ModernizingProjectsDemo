@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>sl5</TargetFramework>
+
+    <LangVersion>7.3</LangVersion>
+
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SilverlightApplication>false</SilverlightApplication>
+    <GenerateExtensionManifest>true</GenerateExtensionManifest>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.5.4" PrivateAssets="All" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildSdkExtrasTargets)" Condition="Exists('$(MSBuildSdkExtrasTargets)')" />
+
+</Project>
